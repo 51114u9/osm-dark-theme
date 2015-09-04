@@ -8,7 +8,7 @@
 // @include     https://*.openstreetmap.org/*
 
 // @license     BSD License; http://www.opensource.org/licenses/bsd-license.php
-// @version     0.1
+// @version     0.2
 // @grant       none
 // ==/UserScript==
 
@@ -28,13 +28,13 @@ function addGlobalStyle(device, css) {
 
 function loadGlobalCSS() {
   addGlobalStyle('screen',
-    'body { background-color: #232323; color: #ccc; } ' +
+    'body { background-color: #232323; color: #888; } ' +
     'a { color: #888; } a:hover { color: #fff; } ' +
     'input[type="text"], input[type="email"], input[type="url"], input[type="password"], textarea { background-color: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
     'input[type="button"], input[type="submit"], input[type="reset"], a.button { background: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
     'input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, a.button:hover { background: #373737; } ' +
     '/* navbar */ ' +
-    'header h1 a { color: #ccc; } ' +
+    'header h1 a { color: #888; } ' +
     'nav.primary > ul { border: 1px solid #181818; } ' +
     'nav.primary > ul > li, nav.primary > ul > li.dropdown > a.tab { border-right: 1px solid #181818; } ' +
     'nav.primary > ul > li > a:hover { background: #2d2d2d; } ' +
@@ -45,6 +45,8 @@ function loadGlobalCSS() {
     'nav.primary .caret, nav.secondary .caret { border-top-color: #888; } ' +
     'nav.secondary > ul a:hover, nav.secondary > ul .dropdown-toggle:hover { color: #fff; } ' +
     'nav.secondary .user-menu { border: 1px solid #181818; } ' +
+    'nav.secondary .user-menu > li { border-right: 1px solid #181818; } ' +
+    'nav.secondary .user-menu > li:hover a { background: #2d2d2d; } ' +
     'nav.secondary .user-menu.logged-in > a:hover > .user-button { color: #fff; } ' +
     'nav.secondary #inboxanchor, .count-number { background: #a40000; color: #fff; } ' +
     '.dropdown-menu { background-color: #232323; border: 1px solid #181818; } ' +
@@ -60,9 +62,9 @@ function loadGlobalCSS() {
     '#turnbyturn td.instruction, #turnbyturn td.distance { border-bottom: 1px solid #181818; } ' +
     '.buttons input[type="submit"], .buttons input[type="button"], .buttons input[type="reset"], .buttons .button, .buttons .button_to { border-right: 1px solid #181818; } ' +
     'input[type="button"]:disabled, input[type="submit"]:disabled, input[type="reset"]:disabled, a.button:disabled { background: #555753; } ' +
-    'input[type="button"]:disabled:hover, input[type="submit"]:disabled:hover, input[type="reset"]:disabled:hover, a.button:disabled:hover { background: #EEE; } ' +
+    'input[type="button"]:disabled:hover, input[type="submit"]:disabled:hover, input[type="reset"]:disabled:hover, a.button:disabled:hover { background: #232323; } ' +
     '#sidebar .changesets li { border-bottom: 1px solid #181818; } ' +
-    '#sidebar .changesets li.selected { border-bottom: 1px solid #2d2d2d; } ' +
+    '#sidebar .changesets li.selected { border-bottom: 1px solid #181818; background: #2d2d2d; } ' +
     '#sidebar .changesets h4 a { color: #888; } ' +
     '#sidebar_content .browse-section { border-bottom: 1px solid #181818; } ' +
     '#sidebar_content .browse-tag-list { background-color: #232323; border: 1px solid #181818; } ' +
@@ -84,6 +86,12 @@ function loadGlobalCSS() {
     '.share-ui .share-tabs a { background-color: #232323; border-top: 1px solid #181818; border-right: 1px solid #181818; border-bottom: 1px solid #181818; color: #888; } ' +
     '.share-ui #geo_uri { width: 100%; font-family: monospace; font-size: small; line-height: 1.3; } ' +
     '/* leaflet-control */ ' +
-    '.leaflet-control .control-button.active { background-color: #2d2d2d; } '
+    '.leaflet-control .control-button.active { background-color: #2d2d2d; } ' +
+    '/* content */ ' +
+    '.content-heading { background: #2d2d2d; } ' +
+    '.standard-form .form-divider { border-top: 1px solid #181818; } ' +
+    '.deemphasize { color: #fff; } ' +
+    '.deemphasize a { color: #888; } ' +
+    '.fillL { background-color: none; } '
   );
 }
