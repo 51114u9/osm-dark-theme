@@ -4,11 +4,11 @@
 
 // @include     http://openstreetmap.org/*
 // @include     https://openstreetmap.org/*
-// @include     http://*.openstreetmap.org/*
-// @include     https://*.openstreetmap.org/*
+// @include     http://www.openstreetmap.org/*
+// @include     https://www.openstreetmap.org/*
 
 // @license     BSD License; http://www.opensource.org/licenses/bsd-license.php
-// @version     0.2
+// @version     0.3
 // @grant       none
 // ==/UserScript==
 
@@ -30,9 +30,12 @@ function loadGlobalCSS() {
   addGlobalStyle('screen',
     'body { background-color: #232323; color: #888; } ' +
     'a { color: #888; } a:hover { color: #fff; } ' +
+    'h4, h5 { color: #888; } ' +
     'input[type="text"], input[type="email"], input[type="url"], input[type="password"], textarea { background-color: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
     'input[type="button"], input[type="submit"], input[type="reset"], a.button { background: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
     'input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, a.button:hover { background: #373737; } ' +
+    'input[type="button"]:disabled, input[type="submit"]:disabled, input[type="reset"]:disabled, a.button:disabled { background: #555753; } ' +
+    'input[type="button"]:disabled:hover, input[type="submit"]:disabled:hover, input[type="reset"]:disabled:hover, a.button:disabled:hover { background: #232323; } ' +
     '/* navbar */ ' +
     'header h1 a { color: #888; } ' +
     'nav.primary > ul { border: 1px solid #181818; } ' +
@@ -61,8 +64,6 @@ function loadGlobalCSS() {
     '#turnbyturn tr.turn:hover { background: #2d2d2d; } ' +
     '#turnbyturn td.instruction, #turnbyturn td.distance { border-bottom: 1px solid #181818; } ' +
     '.buttons input[type="submit"], .buttons input[type="button"], .buttons input[type="reset"], .buttons .button, .buttons .button_to { border-right: 1px solid #181818; } ' +
-    'input[type="button"]:disabled, input[type="submit"]:disabled, input[type="reset"]:disabled, a.button:disabled { background: #555753; } ' +
-    'input[type="button"]:disabled:hover, input[type="submit"]:disabled:hover, input[type="reset"]:disabled:hover, a.button:disabled:hover { background: #232323; } ' +
     '#sidebar .changesets li { border-bottom: 1px solid #181818; } ' +
     '#sidebar .changesets li.selected { border-bottom: 1px solid #181818; background: #2d2d2d; } ' +
     '#sidebar .changesets h4 a { color: #888; } ' +
@@ -78,20 +79,54 @@ function loadGlobalCSS() {
     '.layers-ui .base-layers li.active { border-color: #000; } ' +
     '.layers-ui .base-layers li.active:hover { border-color: #181818; } ' +
     '.layers-ui .base-layers li label { background: rgba(35, 35, 35, 0.9); } ' +
-    '.leaflet-container { background: #232323; } ' +
-    '.leaflet-container a.leaflet-popup-close-button { color: #888; } ' +
-    '.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #232323; } ' +
+    '.share-ui .share-tabs a { background-color: #232323; border-top: 1px solid #181818; border-right: 1px solid #181818; border-bottom: 1px solid #181818; color: #888; } ' +
     '.share-ui .share-tabs a.active { background-color: #232323; } ' +
     '.share-ui .share-tabs a:first-child, .share-ui .share-tabs a:last-child { border: 1px solid #181818; } ' +
-    '.share-ui .share-tabs a { background-color: #232323; border-top: 1px solid #181818; border-right: 1px solid #181818; border-bottom: 1px solid #181818; color: #888; } ' +
     '.share-ui #geo_uri { width: 100%; font-family: monospace; font-size: small; line-height: 1.3; } ' +
-    '/* leaflet-control */ ' +
+    '/* leaflet */ ' +
+    '.layer-list { border: 1px solid #181818; } ' +
+    '.layer-list li { background-color: #232323; color: #888;  } ' +
+    '.layer-list li:not(:last-child) { border-bottom: 1px solid #181818; } ' +
+    '.leaflet-container { background: #232323; } ' +
+    '.leaflet-container a { color: #888; } ' +
+    '.leaflet-container a.leaflet-popup-close-button { color: #888; } ' +
     '.leaflet-control .control-button.active { background-color: #2d2d2d; } ' +
+    '.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #232323; } ' +
     '/* content */ ' +
     '.content-heading { background: #2d2d2d; } ' +
     '.standard-form .form-divider { border-top: 1px solid #181818; } ' +
     '.deemphasize { color: #fff; } ' +
     '.deemphasize a { color: #888; } ' +
-    '.fillL { background-color: none; } '
+    '.fillL { background-color: #232323; } ' +
+    '/* options */ ' +
+    '.activity-block { border-bottom: 1px solid #181818; } ' +
+    '.diary_post { border-top: 1px solid #181818; } ' +
+    '.diary_entry .diary-comment { border-top: 1px dashed #181818; } ' +
+    '.diary_entry .diary-comment:first-child { border-top: 1px solid #181818; } ' +
+    '.diary_entry #newcomment { border-top: 1px solid #181818; } ' +
+    'img.user_thumbnail { border: 1px solid #181818; } ' +
+    '.messages { border: 1px solid #181818; } ' +
+    '.messages tbody tr { border-top: 1px solid #181818; } ' +
+    '.messages tr td { border-right: 1px solid #181818; } ' +
+    '.messages .inbox-row-unread { background: #2d2d2d; } ' +
+    '.messages .inbox-row { background: #232323; } ' +
+    '.note_list tr.creator { background-color: #232323; } ' +
+    '.richtext blockquote, .prose blockquote { border-left: 20px solid #2d2d2d; color: #484848; } ' +
+    '.richtext img, .prose img { background-color: #2d2d2d; } ' +
+    '.richtext_container .richtext_help { background-color: #2d2d2d; } ' +
+    '.richtext_container .richtext_help h4.heading, .richtext_container .richtext_help li { border-bottom: 1px solid #181818; } ' +
+    '.richtext_container .richtext_content .richtext_preview { background-color: #2d2d2d; } ' +
+    '.site-about #content { background-color: #232323; } ' +
+    '.site-about #content .content-inner { color: #888; } ' +
+    '.site-about #content .text { background: #232323; } ' +
+    '.table0, .item0 { background: #2d2d2d; } ' +
+    '.table1, .item1 { background: #232323; } ' +
+    'ul.secondary-actions > li { border-left: 1px solid #181818; } ' +
+    'input.deemphasize[type="button"], input.deemphasize[type="submit"], input.deemphasize[type="reset"], a.button.deemphasize { background: #232323; } ' +
+    'input.deemphasize[type="button"]:hover, input.deemphasize[type="submit"]:hover, input.deemphasize[type="reset"]:hover, a.button.deemphasize:hover { background: #2d2d2d; } ' +
+    '/* editor */ ' +
+    '.notice { background: #232323; } ' +
+    '.notice .zoom-to { color: #888; } ' +
+    '.notice .zoom-to:hover { background: #2d2d2d; } '
   );
 }
