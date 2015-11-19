@@ -8,7 +8,7 @@
 // @include     https://www.openstreetmap.org/*
 
 // @license     BSD License; http://www.opensource.org/licenses/bsd-license.php
-// @version     0.3
+// @version     0.4
 // @grant       none
 // ==/UserScript==
 
@@ -32,17 +32,35 @@ function loadGlobalCSS() {
     'a { color: #888; } a:hover { color: #fff; } ' +
     'h4, h5 { color: #888; } ' +
     'input[type="text"], input[type="email"], input[type="url"], input[type="password"], textarea { background-color: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
-    'input[type="button"], input[type="submit"], input[type="reset"], a.button { background: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
-    'input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, a.button:hover { background: #373737; } ' +
-    'input[type="button"]:disabled, input[type="submit"]:disabled, input[type="reset"]:disabled, a.button:disabled { background: #555753; } ' +
-    'input[type="button"]:disabled:hover, input[type="submit"]:disabled:hover, input[type="reset"]:disabled:hover, a.button:disabled:hover { background: #232323; } ' +
+    'input[type="button"], input[type="search"], input[type="submit"], input[type="reset"], a.button { background: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
+    'input[type="button"]:hover, input[type="search"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, a.button:hover { background: #373737; } ' +
+    'input[type="button"]:disabled, input[type="search"]:disabled, input[type="submit"]:disabled, input[type="reset"]:disabled, a.button:disabled { background: #555753; } ' +
+    'input[type="button"]:disabled:hover, input[type="search"]:disabled:hover, input[type="submit"]:disabled:hover, input[type="reset"]:disabled:hover, a.button:disabled:hover { background: #232323; } ' +
+    '/* tooltip */ ' +
+    '.tooltip, .map-layout #map-ui .tooltip { border: 1px solid #181818; color: #fff; } ' +
+    '.tooltip.top .tooltip-arrow, .map-layout #map-ui .tooltip.top .tooltip-arrow { border-top-color: #2d2d2d; } ' +
+    '.tooltip.bottom .tooltip-arrow, .map-layout #map-ui .tooltip.bottom .tooltip-arrow { border-bottom-color: #2d2d2d; } ' +
+    '.tooltip.left .tooltip-arrow, .map-layout #map-ui .tooltip.left .tooltip-arrow { border-left-color: #2d2d2d; } ' +
+    '.tooltip.right .tooltip-arrow , .map-layout #map-ui .tooltip.right .tooltip-arrow { border-right-color: #2d2d2d; } ' +
+    '.tooltip .tooltip-inner { background-color: #2d2d2d; } ' +
+    '/* leaflet */ ' +
+    '.layer-list { border: 1px solid #181818; } ' +
+    '.layer-list li { background-color: #232323; color: #888;  } ' +
+    '.layer-list li:not(:last-child) { border-bottom: 1px solid #181818; } ' +
+    '.leaflet-container { background: #232323; } ' +
+    '.leaflet-container a { color: #888; } ' +
+    '.leaflet-container a.leaflet-popup-close-button { color: #888; } ' +
+    '.leaflet-control .control-button.active { background-color: #2d2d2d; } ' +
+    '.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #232323; } ' +
     '/* navbar */ ' +
     'header h1 a { color: #888; } ' +
     'nav.primary > ul { border: 1px solid #181818; } ' +
     'nav.primary > ul > li, nav.primary > ul > li.dropdown > a.tab { border-right: 1px solid #181818; } ' +
+    'nav.primary > ul > li.dropdown.current > a.tab { border-right: 1px solid #181818; } ' +
     'nav.primary > ul > li > a:hover { background: #2d2d2d; } ' +
     'nav.primary > ul > li.current { background-color: #2d2d2d; } ' +
     'nav.primary > ul > li.current > a:hover { background: #373737; } ' +
+    'nav.primary > ul > li.disabled > a:hover { background-color: unset; color: #444; } ' +
     'nav.primary a.tab, nav.primary .dropdown-toggle { color: #888; } ' +
     'nav.primary a.tab:hover, nav.primary .dropdown-toggle:hover { color: #fff; } ' +
     'nav.primary .caret, nav.secondary .caret { border-top-color: #888; } ' +
@@ -61,9 +79,14 @@ function loadGlobalCSS() {
     '.search_form .describe_location, .directions_form .describe_location { color: #888; } ' +
     '.search_form input:focus, .directions_form input:focus { box-shadow: 0px 0px 7px #555555; } ' +
     '.map-layout #sidebar { background: #232323; } ' +
+    '.map-layout .welcome .button.learn-more { border-right: 1px solid #181818; } ' +
     '#turnbyturn tr.turn:hover { background: #2d2d2d; } ' +
     '#turnbyturn td.instruction, #turnbyturn td.distance { border-bottom: 1px solid #181818; } ' +
     '.buttons input[type="submit"], .buttons input[type="button"], .buttons input[type="reset"], .buttons .button, .buttons .button_to { border-right: 1px solid #181818; } ' +
+    '.search_results_entry ul li:first-child { border-top: 1px solid #181818; } ' +
+    '.search_results_entry ul li { border-bottom: 1px solid #181818; } ' +
+    '.search_results_entry ul li.selected { background-color: #2d2d2d; } ' +
+    '#sidebar { background-color: #232323; } ' +
     '#sidebar .changesets li { border-bottom: 1px solid #181818; } ' +
     '#sidebar .changesets li.selected { border-bottom: 1px solid #181818; background: #2d2d2d; } ' +
     '#sidebar .changesets h4 a { color: #888; } ' +
@@ -72,6 +95,8 @@ function loadGlobalCSS() {
     '#sidebar_content .browse-tag-list .browse-tag-k { background-color: #2d2d2d; } ' +
     '#sidebar_content .browse-tag-list .browse-tag-v { background-color: #232323; border-left: 1px solid #181818; } ' +
     '#sidebar_content .browse-tag-list th, #sidebar_content .browse-tag-list td { border-bottom: 1px solid #181818; } ' +
+    '#sidebar_content .query-results ul li { border-bottom: 1px solid #181818; }' +
+    '#sidebar_content .query-results ul li.selected { background-color: #2d2d2d; } ' +
     '/* sidebar-right (map-ui) */ ' +
     '.map-layout #map-ui { background: #232323; } ' +
     '.map-layout #map-ui .section { border-bottom: 1px solid #181818; } ' +
@@ -83,21 +108,12 @@ function loadGlobalCSS() {
     '.share-ui .share-tabs a.active { background-color: #232323; } ' +
     '.share-ui .share-tabs a:first-child, .share-ui .share-tabs a:last-child { border: 1px solid #181818; } ' +
     '.share-ui #geo_uri { width: 100%; font-family: monospace; font-size: small; line-height: 1.3; } ' +
-    '/* leaflet */ ' +
-    '.layer-list { border: 1px solid #181818; } ' +
-    '.layer-list li { background-color: #232323; color: #888;  } ' +
-    '.layer-list li:not(:last-child) { border-bottom: 1px solid #181818; } ' +
-    '.leaflet-container { background: #232323; } ' +
-    '.leaflet-container a { color: #888; } ' +
-    '.leaflet-container a.leaflet-popup-close-button { color: #888; } ' +
-    '.leaflet-control .control-button.active { background-color: #2d2d2d; } ' +
-    '.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #232323; } ' +
     '/* content */ ' +
     '.content-heading { background: #2d2d2d; } ' +
     '.standard-form .form-divider { border-top: 1px solid #181818; } ' +
     '.deemphasize { color: #fff; } ' +
     '.deemphasize a { color: #888; } ' +
-    '.fillL { background-color: #232323; } ' +
+    '.fillL { background-color: #2d2d2d; color: #fff; } ' +
     '/* options */ ' +
     '.activity-block { border-bottom: 1px solid #181818; } ' +
     '.diary_post { border-top: 1px solid #181818; } ' +
@@ -125,6 +141,10 @@ function loadGlobalCSS() {
     'input.deemphasize[type="button"], input.deemphasize[type="submit"], input.deemphasize[type="reset"], a.button.deemphasize { background: #232323; } ' +
     'input.deemphasize[type="button"]:hover, input.deemphasize[type="submit"]:hover, input.deemphasize[type="reset"]:hover, a.button.deemphasize:hover { background: #2d2d2d; } ' +
     '/* editor */ ' +
+    '.header { border-bottom: 1px solid #181818; } ' +
+    '.modal-section { border-bottom: 1px solid #181818; } ' +
+    '.modal-actions :first-child { border-right: 1px solid #181818; } ' +
+    '.modal-actions button, .save-success a.button { background: #232323; border-bottom: 1px solid #CCC; color: #fff; } ' +
     '.notice { background: #232323; } ' +
     '.notice .zoom-to { color: #888; } ' +
     '.notice .zoom-to:hover { background: #2d2d2d; } '
