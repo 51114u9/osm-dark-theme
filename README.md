@@ -1,6 +1,8 @@
 
 # OSM Dark Theme
 
+If you have applied a dark theme on your desktop, also in osm.org you should have it.
+
 ## Screenshots
 
 Before:
@@ -14,6 +16,7 @@ After:
 ## Features
 
 * apply dark theme into header, sidebars, panels and leaflet elements
+* apply partially the dark theme into iD editor
 
 ## Requirements
 
@@ -30,20 +33,12 @@ click on "Install Script" and wait for install
 
 ## Apply Script
 
-Reload [openstreetmap.org](https://openstreetmap.org/) and the script will start
-
-## Contributors
-
-* Only me!
+Reload [osm.org](https://openstreetmap.org/) and the script will start
 
 ## ToDo
 
-* add @exclude pages
-* support user options
-* support "gps traces" page
-* support "user diaries" page
-* support "copyright", "help", and "about" pages
-* more testing!
+* font size
+* iD editor
 
 Enjoy!
 
