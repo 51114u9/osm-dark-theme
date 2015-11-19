@@ -8,7 +8,7 @@
 // @include     https://www.openstreetmap.org/*
 
 // @license     BSD License; http://www.opensource.org/licenses/bsd-license.php
-// @version     0.4
+// @version     0.4.1
 // @grant       none
 // ==/UserScript==
 
@@ -29,7 +29,7 @@ function addGlobalStyle(device, css) {
 function loadGlobalCSS() {
   addGlobalStyle('screen',
     'body { background-color: #232323; color: #888; } ' +
-    'a { color: #888; } a:hover { color: #fff; } ' +
+    'a { color: #fff; } a:hover { color: #fff; } ' +
     'h4, h5 { color: #888; } ' +
     'input[type="text"], input[type="email"], input[type="url"], input[type="password"], textarea { background-color: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
     'input[type="button"], input[type="search"], input[type="submit"], input[type="reset"], a.button { background: #2d2d2d; border: 1px solid #181818; color: #888; } ' +
@@ -89,7 +89,7 @@ function loadGlobalCSS() {
     '#sidebar { background-color: #232323; } ' +
     '#sidebar .changesets li { border-bottom: 1px solid #181818; } ' +
     '#sidebar .changesets li.selected { border-bottom: 1px solid #181818; background: #2d2d2d; } ' +
-    '#sidebar .changesets h4 a { color: #888; } ' +
+    '#sidebar .changesets h4 a { color: #fff; } ' +
     '#sidebar_content .browse-section { border-bottom: 1px solid #181818; } ' +
     '#sidebar_content .browse-tag-list { background-color: #232323; border: 1px solid #181818; } ' +
     '#sidebar_content .browse-tag-list .browse-tag-k { background-color: #2d2d2d; } ' +
@@ -111,9 +111,8 @@ function loadGlobalCSS() {
     '/* content */ ' +
     '.content-heading { background: #2d2d2d; } ' +
     '.standard-form .form-divider { border-top: 1px solid #181818; } ' +
-    '.deemphasize { color: #fff; } ' +
-    '.deemphasize a { color: #888; } ' +
-    '.fillL { background-color: #2d2d2d; color: #fff; } ' +
+    '.deemphasize a { color: #fff; } ' +
+    '.fillL { background-color: #2d2d2d; } ' +
     '/* options */ ' +
     '.activity-block { border-bottom: 1px solid #181818; } ' +
     '.diary_post { border-top: 1px solid #181818; } ' +
