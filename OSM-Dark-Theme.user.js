@@ -1,15 +1,18 @@
 // ==UserScript==
-// @name        OSM Dark Theme
-// @namespace   http://about.me/marcoantoniofrias
-
-// @include     http://openstreetmap.org/*
-// @include     https://openstreetmap.org/*
-// @include     http://www.openstreetmap.org/*
-// @include     https://www.openstreetmap.org/*
-
-// @license     BSD License; http://www.opensource.org/licenses/bsd-license.php
-// @version     0.4.1
-// @grant       none
+// @version         0.4.2
+// @author          51114u9
+// @name            OSM Dark Theme
+// @namespace       https://github.com/51114u9/osm-dark-theme
+// @description     Dark theme for OSM.org
+// @license         BSD License; http://www.opensource.org/licenses/bsd-license.php
+// @icon            https://raw.githubusercontent.com/51114u9/osm-dark-theme/master/osm-dark-theme_after.jpg
+// @match           *://openstreetmap.org/*
+// @match           *://www.openstreetmap.org/*
+// @downloadURL     https://github.com/51114u9/osm-dark-theme/raw/master/OSM-Dark-Theme.user.js
+// @homepageURL     https://github.com/51114u9/osm-dark-theme
+// @supportURL      https://github.com/51114u9/osm-dark-theme
+// @contributionURL https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LD7E4CKP26UQ2
+// @grant           none
 // ==/UserScript==
 
 // Load prerequisites
