@@ -1,11 +1,10 @@
 // ==UserScript==
-// @version         0.5.1
+// @version         0.5.2
 // @author          51114u9
 // @name            OSM Dark Theme
 // @namespace       https://github.com/51114u9/osm-dark-theme
 // @description     Dark theme for OSM.org
-// @license         BSD License; http://www.opensource.org/licenses/bsd-license.php
-// @icon            https://raw.githubusercontent.com/51114u9/osm-dark-theme/master/osm-dark-theme_after.jpg
+// @license         BSD-2-Clause; https://opensource.org/licenses/bsd-license.php
 // @match           *://openstreetmap.org/*
 // @match           *://www.openstreetmap.org/*
 // @downloadURL     https://github.com/51114u9/osm-dark-theme/raw/master/OSM-Dark-Theme.user.js
