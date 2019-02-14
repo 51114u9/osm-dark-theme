@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         0.5.0
+// @version         0.5.1
 // @author          51114u9
 // @name            OSM Dark Theme
 // @namespace       https://github.com/51114u9/osm-dark-theme
@@ -57,6 +57,7 @@ function loadGlobalCSS() {
     '.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #232323; color: #888; } ' +
     '.leaflet-contextmenu { background: #232323; } ' +
     '.leaflet-contextmenu a.leaflet-contextmenu-item { color: #888; } ' +
+    '.leaflet-contextmenu a.leaflet-contextmenu-item.over { background-color: #2d2d2d; border-top-color: #2d2d2d; border-bottom-color: #2d2d2d; } ' +
     '/* navbar */ ' +
     'header h1 a { color: #888; } ' +
     'nav.primary > ul { border: 1px solid #181818; } ' +
