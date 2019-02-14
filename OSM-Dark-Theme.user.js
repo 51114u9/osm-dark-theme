@@ -88,9 +88,9 @@ function loadGlobalCSS() {
     '#turnbyturn tr.turn:hover { background: #2d2d2d; } ' +
     '#turnbyturn td.instruction, #turnbyturn td.distance { border-bottom: 1px solid #181818; } ' +
     '.buttons input[type="submit"], .buttons input[type="button"], .buttons input[type="reset"], .buttons .button, .buttons .button_to { border-right: 1px solid #181818; } ' +
-    '.search_results_entry ul li:first-child { border-top: 1px solid #181818; } ' +
-    '.search_results_entry ul li { border-bottom: 1px solid #181818; } ' +
-    '.search_results_entry ul li.selected { background-color: #2d2d2d; } ' +
+    '.search_results_entry ul li:first-child { border-top: 1px solid #181818 !important; } ' +
+    '.search_results_entry ul li { border-bottom: 1px solid #181818 !important; } ' +
+    '.search_results_entry ul li.selected { background-color: #2d2d2d !important; } ' +
     '#sidebar { background-color: #232323; } ' +
     '#sidebar .changesets li { border-bottom: 1px solid #181818; } ' +
     '#sidebar .changesets li.selected { border-bottom: 1px solid #181818; background: #2d2d2d; } ' +
